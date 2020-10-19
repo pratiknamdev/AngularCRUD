@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListEmployeesComponent } from './employees/list-employees/list-employees.component';
 import { CreateEmployeeComponent } from './employees/create-employee/create-employee.component';
 import { RouterModule, Routes } from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'list', component: ListEmployeesComponent },
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
