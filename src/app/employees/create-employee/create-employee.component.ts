@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   templateUrl: './create-employee.component.html',
@@ -7,12 +7,22 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class CreateEmployeeComponent implements OnInit {
   employeeForm: FormGroup;
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.employeeForm = new FormGroup({
-      fullName: new FormControl(),
-      email: new FormControl()
+    // this.employeeForm = new FormGroup({
+    //   fullName: new FormControl(),
+    //   email: new FormControl(),
+    //   phone: new FormControl(),
+    //   gender: new FormControl()
+    // });
+    this.employeeForm = this.formBuilder.group({
+      firstName: new FormControl(),
+      lastName: new FormControl(),
+      email: new FormControl(),
+      phone: new FormControl(),
+      gender: new FormControl(),
+      isActive: [false, Validators.requiredTrue]
     });
   }
 
